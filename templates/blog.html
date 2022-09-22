@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">{{ section.title }} -</h1>
+<div id="blog-list">
+  <blockquote>
+    Melcow to my Insanity:-
+  </blockquote>
+  {% for page in section.pages %}
+  <div id="blog-summary"> 
+    <h3><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h3>
+    <code>{{ page.date }}</code>
+    {{ page.summary | safe }}
+    <a href="{{ page.permalink | safe }}">"{{page.description }}"</a>
+  </div>
+  {% if page.title != "First Blog" %}
+    <hr>
+  {% endif %}
+  {% endfor %}
+</div>
+{% endblock content %}
